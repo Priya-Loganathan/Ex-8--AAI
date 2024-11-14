@@ -23,24 +23,27 @@ Step 11: Perform speech recognition with exceptional handling:
 ```
 import speech_recognition as sr
 r = sr.Recognizer()
-duration = 30
-print("Say something")
-with sr.Microphone() as source:
-    audio_data = r.listen(source,timeout=duration)
+
+duration = 5
+
+with sr.Microphone() as source :
+    print("Say something:\n\n")
+    audio_data = r.listen(source,timeout = duration)
 
 try:
-    text= r.recognize_google(audio_data)
+    text = r.recognize_google(audio_data)
+    print("You said:\n", text)
 except sr.UnknownValueError:
-    print("Sorry, couldn't understand the audio")
+    print("Sorry, could not understand audio")
 except sr.RequestError as e:
-    print(f'Error with request tp Google Speech Recognition service: {e}')
+    print(f'Error with the request to Google Speech Recognition service: {e}')
 except Exception as e:
-    print(f'Error : {e}')
+    print(f'Error: {e}')
 ```
 
 # Output:
 
-![image](https://github.com/user-attachments/assets/e9e5301e-1e9a-4309-8bdf-e23669d5f855)
+![image](https://github.com/user-attachments/assets/3c755423-136e-45ff-b6c9-5b8f7aa370f8)
 
 # Result:
 Thus, the python program for Speech Recognition is implemented successfully.
